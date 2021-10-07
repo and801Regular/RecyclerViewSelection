@@ -1,7 +1,9 @@
 package com.example.android801night_lab7recycler
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,7 @@ import com.example.android801night_lab7recycler.data.PlaceListAdapter
 private var adapter:PlaceListAdapter?=null
 private var countryList:ArrayList<Place>?=null
 private var layoutManager:RecyclerView.LayoutManager?=null
+
 lateinit  var tv:TextView
 
 private lateinit var myRecyclerView: RecyclerView
@@ -33,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         myRecyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         tv.text= "$selected de $total"
 
+        val buttonNext : Button = findViewById(R.id.buttonNext)
+        buttonNext.setOnClickListener { onClickNext() }
+
 
 
 
@@ -52,8 +58,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun onCheckChanged(total:Int,selected:Int){
-
+    fun onClickNext(){
+        intent = Intent(this,MainActivity2::class.java)
+        startActivity(intent)
     }
 
     val onCheckChange: (Int, Int) -> Unit = { selected, total ->

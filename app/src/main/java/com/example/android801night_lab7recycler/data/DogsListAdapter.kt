@@ -21,8 +21,6 @@ class DogsListAdapter(private val images:List<String>, private val context: Cont
         fun bindItem(image: String){
             var ivDog: ImageView = itemView.findViewById(R.id.imageViewDogs) as ImageView
             ivDog.fromUL(image)
-
-
         }
     }
 

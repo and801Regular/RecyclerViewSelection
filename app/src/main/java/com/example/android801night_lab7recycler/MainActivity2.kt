@@ -34,12 +34,10 @@ class MainActivity2 : AppCompatActivity(), CoroutineScope by MainScope() {
         dogList = ArrayList()
         myRecyclerView = findViewById(R.id.myRecyclerViewDogs)
 
-        layoutManager = LinearLayoutManager(this)
-        myRecyclerView.layoutManager = layoutManager
-        adapter = DogsListAdapter(dogList, this)
-        myRecyclerView.adapter = adapter
-
-
+        //layoutManager = LinearLayoutManager(this)
+        //myRecyclerView.layoutManager = layoutManager
+        //adapter = DogsListAdapter(dogList, this)
+        //myRecyclerView.adapter = adapter
         etDog = findViewById(R.id.etDog)
         btnSearch = findViewById(R.id.btnSearch)
         btnSearch.setOnClickListener{searchDog()}
@@ -59,7 +57,7 @@ class MainActivity2 : AppCompatActivity(), CoroutineScope by MainScope() {
                 if (apiResponse.isSuccessful && apiResponse.body() != null) {
                     val dogs = apiResponse.body() as DogResponse
                     initRecycler(dogs)
-                    Log.v("APIDATA", "Data: $ dogs")
+                    Log.v("APIDATA", "Data: ${dogs}")
                 } else {
                     Log.v("APIDATA", "No se encontro esa raza")
                 }
@@ -75,11 +73,16 @@ class MainActivity2 : AppCompatActivity(), CoroutineScope by MainScope() {
     {
         if(dogs.status=="Success"){
             dogList = dogs.message
-
         }
 
+        layoutManager = LinearLayoutManager(this)
+        myRecyclerView.layoutManager = layoutManager
 
-        adapter?.notifyDataSetChanged()
+        adapter = DogsListAdapter(dogList, this)
+        myRecyclerView.adapter = adapter
+
+        //adapter.notifyDataSetChanged()
+
     }
 
 }
