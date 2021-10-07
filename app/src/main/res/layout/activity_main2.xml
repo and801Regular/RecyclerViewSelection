@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/etDog"
         android:layout_width="226dp"
-        android:layout_height="41dp"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
@@ -30,9 +30,20 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myRecyclerViewDogs"
         android:layout_width="393dp"
-        android:layout_height="495dp"
+        android:layout_height="400dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
         android:layout_marginTop="4dp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDog" />
 </androidx.constraintlayout.widget.ConstraintLayout>

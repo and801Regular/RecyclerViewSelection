@@ -1,6 +1,7 @@
 package com.example.android801night_lab7recycler.data
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.android801night_lab7recycler.R
 import com.example.android801night_lab7recycler.dto.DogResponse
 import com.example.android801night_lab7recycler.util.fromUL
+import javax.xml.transform.URIResolver
 
 class DogsListAdapter(private val images:List<String>, private val context: Context):
     RecyclerView.Adapter<DogsListAdapter.ViewHolder>(){
